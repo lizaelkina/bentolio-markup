@@ -4,8 +4,16 @@ $font-medium: Gilroy-Medium, Arial, Helvetica, San Francisco, Roboto, sans-serif
 $font-italic: Gilroy-Italic, Arial, Helvetica, San Francisco, Roboto, sans-serif;
 $font-bold: Gilroy-Bold, Arial, Helvetica, San Francisco, Roboto, sans-serif;
 
+// variables-colors
+:root {
+  --color-1: #f9f1f0;
+  --color-2: #fadcd9;
+  --color-3: #f8afa6;
+  --color-4: #000;
+}
+
 // colors
-$background: #f9f1f0;
-$primary: #fadcd9;
-$secondary: #f8afa6;
-$text: #000;
+$background: var(--color-1);
+$primary: var(--color-2);
+$secondary: var(--color-3);
+$text: var(--color-4);
