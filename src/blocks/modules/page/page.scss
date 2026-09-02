@@ -1,5 +1,16 @@
 .page {
+  max-width: 1440px;
+  width: 100%;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  .page {
+    padding: 16px;
+  }
 }
