@@ -1,8 +1,8 @@
 // fonts
-$font-light: Gilroy-Light, Arial, Helvetica, San Francisco, Roboto, sans-serif;
-$font-medium: Gilroy-Medium, Arial, Helvetica, San Francisco, Roboto, sans-serif;
-$font-italic: Gilroy-Italic, Arial, Helvetica, San Francisco, Roboto, sans-serif;
-$font-bold: Gilroy-Bold, Arial, Helvetica, San Francisco, Roboto, sans-serif;
+$font-light: 'Gilroy-Light', Arial, Helvetica, San Francisco, Roboto, sans-serif;
+$font-medium: 'Gilroy-Medium', Arial, Helvetica, San Francisco, Roboto, sans-serif;
+$font-italic: 'Gilroy-Italic', Arial, Helvetica, San Francisco, Roboto, sans-serif;
+$font-bold: 'Gilroy-Bold', Arial, Helvetica, San Francisco, Roboto, sans-serif;
 
 // variables-colors
 :root {
@@ -17,3 +17,6 @@ $background: var(--color-1);
 $primary: var(--color-2);
 $secondary: var(--color-3);
 $text: var(--color-4);
+
+// block-radius
+$block-radius: 20px;
