@@ -3,14 +3,15 @@
   width: 100%;
   min-width: 320px;
   margin: 0 auto;
-  padding: 24px;
+  padding: $desktop-gap;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: $desktop-gap;
 }
 
 @media screen and (max-width: 1024px) {
   .page {
-    padding: 16px;
+    padding: $mobile-gap;
+    gap: $mobile-gap;
   }
 }
