@@ -1,10 +1,28 @@
 section(aria-label='My slogan').intro
   div.intro__top
-    article.intro__slogan
-      +svg('icon-flower').intro__svg
-      p.intro__text
+    article.slogan
+      +svg('icon-flower').slogan__svg
+      p.slogan__text
         | Artist Redefining
-        | #[span.intro__text-italic Architecture]
+        | #[span.slogan__text-italic Architecture]
         | with AI-Driven Design
-    +img('./img/portrait', 'My photo').intro__image
+    +img('./img/portrait', 'My photo').portrait
+
   div.intro__bottom
+    article(aria-label='About me').about
+      +svg('icon-circle').about__svg
+      p.about__text
+        | Julia Huang is an innovative AI
+        | artist, renowned for blending
+        | cutting-edge technology with
+        | creative expression. Based in
+        | LA, she crafts unique digital art
+        | experiences accessible globally.
+
+    a(href='#' aria-label='Contact me').contact
+      div.contact__link
+        h3.contact__text
+          | Have some questions?
+        +svg('icon-arrow').contact__svg
+      h2.contact__title
+        | Contact me

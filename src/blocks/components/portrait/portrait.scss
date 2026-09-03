@@ -1,0 +1,11 @@
+.portrait {
+  flex: 1;
+  aspect-ratio: 330 / 476;
+  border-radius: $block-radius;
+}
+
+@media screen and (max-width: 768px) {
+  .portrait {
+    aspect-ratio: 2;
+  }
+}

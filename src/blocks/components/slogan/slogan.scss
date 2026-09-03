@@ -1,0 +1,36 @@
+.slogan {
+  flex: 1;
+  min-width: 565px;
+  padding: 34px 30px 80px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 72px;
+  border-radius: $block-radius;
+  background-color: $primary;
+
+  &__svg {
+    align-self: flex-end;
+    max-width: 119px;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  &__text {
+    font-family: $font-bold;
+    font-weight: 700;
+    font-style: normal;
+    font-size: clamp(24px, 4vw, 56px);
+    line-height: 100%;
+    color: $text;
+  }
+
+  &__text-italic {
+    font-family: $font-light;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(24px, 4vw, 56px);
+    line-height: 100%;
+    color: $text;
+  }
+}

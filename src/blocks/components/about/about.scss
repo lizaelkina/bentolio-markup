@@ -1,0 +1,39 @@
+.about {
+  flex: 1;
+  padding: 32px 24px 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 85px;
+  border-radius: $block-radius;
+  background-color: $primary;
+
+  &__svg {
+    max-width: 38px;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  &__text {
+    max-width: 296px;
+    width: 100%;
+    font-family: $font-light;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(18px, 4vw, 20px);
+    line-height: 125%;
+    color: $text;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 24px;
+    gap: 24px;
+
+    &__text {
+      max-width: none;
+    }
+  }
+}
