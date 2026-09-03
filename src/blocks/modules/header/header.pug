@@ -1,14 +1,10 @@
-mixin header-link(name)
-  li&attributes(attributes)
-    a.header__link(href='#')= name
-
 header.header
   a(href='#').header__logo
     h1.header__title
       | Julia
       | #[span.header__title-bold Huang]
-    nav
-      ul.header__nav
-        +header-link('Projects')
-        +header-link('About')
-        +header-link('Contact')
+  nav
+    ul.header__nav
+      +link('Projects')
+      +link('About')
+      +link('Contact')
