@@ -1,7 +1,6 @@
 .slogan {
-  flex: 1;
-  min-width: 565px;
-  padding: 34px 30px 80px 24px;
+  flex: 1.55;
+  padding: 34px 30px 85px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,16 +10,15 @@
 
   &__svg {
     align-self: flex-end;
-    max-width: 119px;
-    width: 100%;
-    aspect-ratio: 1;
+    width: 119px;
+    height: 119px;
   }
 
   &__text {
     font-family: $font-bold;
     font-weight: 700;
     font-style: normal;
-    font-size: clamp(24px, 4vw, 56px);
+    font-size: clamp(28px, 4vw, 56px);
     line-height: 100%;
     color: $text;
   }
@@ -32,5 +30,22 @@
     font-size: clamp(24px, 4vw, 56px);
     line-height: 100%;
     color: $text;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .slogan {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slogan {
+    padding: 24px 24px 34px;
+
+    &__svg {
+      width: 80px;
+      height: 80px;
+    }
   }
 }

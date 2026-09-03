@@ -4,9 +4,10 @@ section(aria-label='My slogan').intro
       +svg('icon-flower').slogan__svg
       p.slogan__text
         | Artist Redefining
-        | #[span.slogan__text-italic Architecture]
-        | with AI-Driven Design
-    +img('./img/portrait', 'My photo').portrait
+        | #[br]#[span.slogan__text-italic Architecture] with
+        | #[br]AI-Driven Design
+    div.portrait
+      +img('./img/portrait', 'My photo').portrait__img
 
   div.intro__bottom
     article(aria-label='About me').about

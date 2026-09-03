@@ -1,11 +1,16 @@
 .content {
   display: flex;
-  gap: 24px;
+  gap: $desktop-gap;
+}
+
+@media screen and (max-width: 1140px) {
+  .content {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .content {
-    flex-direction: column;
-    gap: 16px;
+    gap:  $mobile-gap;
   }
 }
