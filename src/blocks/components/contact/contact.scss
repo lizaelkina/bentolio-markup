@@ -1,10 +1,12 @@
 .contact {
   flex: 1;
+  min-width: min(314px, 100%);
   padding: 30px 24px 46px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 24px;
   border-radius: $block-radius;
   background-color: $secondary;
 
@@ -30,25 +32,25 @@
     max-width: 38px;
     width: 100%;
     aspect-ratio: 1;
+    transition: transform .5s ease;
   }
 
   &__title {
     font-family: $font-medium;
     font-weight: 500;
     font-style: normal;
-    font-size: clamp(22px, 4vw, 55px);
+    font-size: clamp(24px, 3.5vw, 55px);
     line-height: 100%;
     color: $text;
   }
 }
 
+.contact:hover .contact__svg {
+  transform: scale(1.5);
+}
+
 @media screen and (max-width: 768px) {
   .contact {
     padding: 24px;
-    gap: 24px;
-
-    &__text {
-      max-width: none;
-    }
   }
 }
