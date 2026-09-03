@@ -1,0 +1,21 @@
+.social {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  border-radius: $block-radius;
+  background-color: $primary;
+}
+
+@media screen and (max-width: 1024px) {
+  .social {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .social {
+    gap: 16px;
+  }
+}
