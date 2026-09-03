@@ -6,6 +6,16 @@
   border-radius: $block-radius;
   background-color: $primary;
 
+  &__logo {
+    transition: transform .5s ease;
+  }
+
+  @media (any-hover: hover) {
+    &__logo:hover {
+      transform: scale(1.1);
+    }
+  }
+
   &__title {
     font-family: $font-italic;
     font-weight: 300;
@@ -55,10 +65,10 @@
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 768px) {
   .header {
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
 
     &__nav {
       gap: 16px;
