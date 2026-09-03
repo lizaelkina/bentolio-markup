@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 65px;
   border-radius: $block-radius;
   background-color: $primary;
 }
@@ -11,6 +11,7 @@
 @media screen and (max-width: 1024px) {
   .social {
     padding: 24px;
+    gap: 35px;
   }
 }
 
