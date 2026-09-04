@@ -15,6 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 24px;
   }
 
   &__text {
@@ -30,8 +31,7 @@
 
   &__svg {
     max-width: 38px;
-    width: 100%;
-    aspect-ratio: 1;
+    height: 38px;
     transition: transform .5s ease;
   }
 

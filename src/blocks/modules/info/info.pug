@@ -1,7 +1,18 @@
+mixin work-item(name)
+  li.work__item= name
+
 section(aria-label='My works').info
-  div.work
-    h3.work__title Musea
-  ul.social
+  article.work
+    a(href='#').work__link
+      h3.work__title Musea
+      +svg('icon-arrow').work__svg
+    div.work__container
+      +img('./img/image', 'My design').work__img
+      ul.work__list
+        +work-item('Elara')
+        +work-item('Verve')
+        +work-item('Zephyr')
+  ul(aria-label='My social').social
     +link('Instagram')
     +link('Twitter')
     +link('Linkedin')
