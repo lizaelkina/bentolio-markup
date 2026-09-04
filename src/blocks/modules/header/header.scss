@@ -3,10 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 40px;
   border-radius: $block-radius;
   background-color: $primary;
 
   &__logo {
+    min-width: min(160px, 100%);
     transition: transform .5s ease;
   }
 
@@ -38,18 +40,20 @@
 
   &__nav {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 48px;
+    column-gap: 48px;
+    row-gap: 16px;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .header {
     padding: 24px;
+    gap: 24px;
 
     &__nav {
-      gap: 24px;
+      column-gap: 24px;
     }
   }
 }
@@ -60,6 +64,7 @@
     gap: 12px;
 
     &__nav {
+      justify-content: center;
       gap: 16px;
     }
   }

@@ -11,9 +11,8 @@
   background-color: $primary;
 
   &__svg {
-    max-width: 38px;
-    width: 100%;
-    aspect-ratio: 1;
+    width: 38px;
+    height: 38px;
   }
 
   &__text {

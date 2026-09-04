@@ -5,11 +5,13 @@
   gap: $desktop-gap;
 
   &__top {
+    flex: 1;
     display: flex;
     gap: $desktop-gap;
   }
 
   &__bottom {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
     gap: $desktop-gap;
