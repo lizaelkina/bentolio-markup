@@ -5,7 +5,7 @@
     "type": "git",
     "url": "git+https://github.com/lizaelkina/bentolio-markup.git"
   },
-  "homepage": "https://github.com/lizaelkina/bentolio-markup#readme",
+  "homepage": "https://github.com/lizaelkina/bentolio-markup",
   "bugs": {
     "url": "https://github.com/lizaelkina/bentolio-markup/issues"
   },
@@ -13,6 +13,8 @@
   "scripts": {
     "dev": "gulp",
     "build": "gulp prod --production",
+    "deploy": "yarn run build && gh-pages -d dist --nojekyll",
+    "gh-pages-clean": "yarn gh-pages-clean",
     "build:views": "gulp views --production",
     "build:styles": "gulp styles --production",
     "build:scripts": "gulp scripts --production",
@@ -27,9 +29,7 @@
     "lint:scripts": "eslint \"src/js/**/*.js\"",
     "lint:scripts --fix": "eslint --fix \"src/js/**/*.js\"",
     "bem-c": "bem create $* -l src/blocks/components",
-    "bem-m": "bem create $* -l src/blocks/modules",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d dist"
+    "bem-m": "bem create $* -l src/blocks/modules"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
