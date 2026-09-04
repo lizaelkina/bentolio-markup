@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "gulp",
     "build": "gulp prod --production",
-    "deploy": "yarn run build && gh-pages -d dist --nojekyll",
+    "deploy": "yarn run build && gh-pages -d dist",
     "gh-pages-clean": "yarn gh-pages-clean",
     "build:views": "gulp views --production",
     "build:styles": "gulp styles --production",
