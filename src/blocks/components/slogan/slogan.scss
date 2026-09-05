@@ -15,7 +15,6 @@
   }
 
   &__text {
-    font-family: $font-bold;
     font-weight: 700;
     font-style: normal;
     font-size: clamp(28px, 4vw, 56px);
@@ -24,7 +23,6 @@
   }
 
   &__text-italic {
-    font-family: $font-light;
     font-weight: 300;
     font-style: italic;
     font-size: clamp(24px, 4vw, 56px);

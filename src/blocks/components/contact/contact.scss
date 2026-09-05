@@ -21,7 +21,6 @@
   &__text {
     max-width: 78px;
     width: 100%;
-    font-family: $font-light;
     font-weight: 300;
     font-style: normal;
     font-size: 15px;
@@ -36,7 +35,6 @@
   }
 
   &__title {
-    font-family: $font-medium;
     font-weight: 500;
     font-style: normal;
     font-size: clamp(24px, 4vw, 55px);
