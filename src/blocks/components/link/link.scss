@@ -5,5 +5,10 @@
   line-height: normal;
   text-transform: uppercase;
   color: $text;
-  @include link-hover;
+  @include link-hover(.5px);
+
+  &_work {
+    text-transform: none;
+    @include link-hover(1.5px);
+  }
 }

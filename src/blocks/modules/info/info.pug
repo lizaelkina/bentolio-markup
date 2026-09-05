@@ -1,5 +1,6 @@
 mixin work-item(name)
-  li.work__item= name
+  li.work__item
+    a.work__item-link(href='#')&attributes(attributes)= name
 
 section(aria-label='My works').info
   article.work
@@ -9,9 +10,9 @@ section(aria-label='My works').info
     div.work__container
       +img('./img/image', 'My design').work__img
       ul.work__list
-        +work-item('Elara')
-        +work-item('Verve')
-        +work-item('Zephyr')
+        +work-item('Elara').link.link_work
+        +work-item('Verve').link.link_work
+        +work-item('Zephyr').link.link_work
   ul(aria-label='My social').social
     +link('Instagram')
     +link('Twitter')
