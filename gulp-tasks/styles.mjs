@@ -5,7 +5,6 @@ import {pipeline} from 'node:stream/promises';
 import gulp from 'gulp';
 import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
-import sourcemaps from 'gulp-sourcemaps';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
@@ -24,8 +23,13 @@ export async function compileStyles({rootDir, outputDir, mode}) {
   const processors = [autoprefixer({env: mode})];
   if (!development) processors.push(cssnano({preset: ['default', {mergeRules: false}]}));
   const streams = [gulp.src(path.join(rootDir, 'src/styles/main.scss'), {base: rootDir})];
-  if (development) streams.push(sourcemaps.init());
+  if (development) streams.push(transform(file => {
+    const source = slash(file.relative);
+    // Empty mappings let Sass replace this initial map before PostCSS composes it.
+    file.sourceMap = {version: 3, file: source, names: [], sources: [source], sourcesContent: [file.contents.toString()], mappings: ''};
+  }));
   streams.push(sass(), postcss(processors), transform(file => {
+    if (development && (!file.sourceMap || typeof file.sourceMap !== 'object')) throw new Error('Missing development stylesheet source map');
     if (file.sourceMap) {
       // PostCSS adds mappings for generated braces to the intermediate CSS.
       // Leave those segments unmapped instead of advertising a nonexistent source file.
@@ -58,7 +62,10 @@ export async function compileStyles({rootDir, outputDir, mode}) {
     file.base = destination;
     file.path = path.join(destination, 'main.css');
   }));
-  if (development) streams.push(sourcemaps.write('.', {includeContent: true}));
+  if (development) streams.push(transform(file => {
+    entries.push(['main.css.map', Buffer.from(JSON.stringify(file.sourceMap))]);
+    file.contents = Buffer.concat([file.contents, Buffer.from('\n/*# sourceMappingURL=main.css.map */\n')]);
+  }));
   streams.push(new Writable({objectMode: true, write(file, _encoding, callback) {
     entries.push([file.relative, file.contents]);
     callback();

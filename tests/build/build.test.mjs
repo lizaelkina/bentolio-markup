@@ -5,6 +5,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import stylelint from 'stylelint';
 import {ESLint} from 'eslint';
+import {SourceMapConsumer} from 'source-map-js';
 import {createBuild, projectRoot} from '../../gulp-tasks/index.mjs';
 import {createBlock} from '../../scripts/create-block.mjs';
 import {files, unique} from '../../gulp-tasks/io.mjs';
@@ -160,19 +161,42 @@ test('four coherent favicons, opaque white Apple icon and deletion', async t => 
 
 test('sourcemaps include original entrypoint and BEM paths with spaces and Cyrillic', async t => {
   const f = await fixture(t, {label: 'проверка карты '});
-  await f.put('src/blocks/components/card/card.scss', '.card { color: blue; }\n');
+  await f.put('src/blocks/components/card/card.scss', '.card {\n  color: blue;\n  user-select: none;\n}\n');
   await f.put('src/styles/main.scss', '@use "../blocks/components/card/card";\n.entry { color: red; }\n');
   await createBuild({...f, mode: 'development'}).styles();
   const stylesheet = path.join(f.outputDir, 'styles/main.css');
+  const css = await fs.readFile(stylesheet, 'utf8');
+  assert.equal((css.match(/sourceMappingURL=/g) || []).length, 1);
+  assert.match(css, /\/\*# sourceMappingURL=main\.css\.map \*\/\n$/);
   const map = JSON.parse(await fs.readFile(`${stylesheet}.map`, 'utf8'));
+  assert.equal(map.version, 3);
   assert.equal(map.file, 'main.css');
+  assert.equal(map.sourceRoot, undefined);
   assert.ok(map.sources.some(source => source.endsWith('src/styles/main.scss')));
   assert.ok(map.sources.some(source => source.endsWith('src/blocks/components/card/card.scss')));
   assert.equal(map.sourcesContent.length, map.sources.length);
   for (let i = 0; i < map.sources.length; i++) {
     assert.equal(path.isAbsolute(map.sources[i]), false);
+    assert.doesNotMatch(map.sources[i], /^(?:file:|data:|[A-Za-z]:)|\\|src\/styles\/main\.css$/);
     assert.equal((await fs.readFile(path.resolve(path.dirname(stylesheet), map.sources[i]), 'utf8')).trim(), map.sourcesContent[i].trim());
   }
+  const consumer = new SourceMapConsumer(map);
+  for (const [declaration, source, originalLine] of [
+    ['color: red', 'src/styles/main.scss', 2],
+    ['color: blue', 'src/blocks/components/card/card.scss', 2],
+    ['-webkit-user-select: none', 'src/blocks/components/card/card.scss', 3],
+    ['user-select: none', 'src/blocks/components/card/card.scss', 3]
+  ]) {
+    const lineIndex = css.split('\n').findIndex(line => line.trimStart().startsWith(declaration));
+    assert.ok(lineIndex >= 0, `Missing declaration: ${declaration}`);
+    const column = css.split('\n')[lineIndex].indexOf(declaration);
+    const original = consumer.originalPositionFor({line: lineIndex + 1, column});
+    assert.ok(original.source?.endsWith(source), `Wrong source for ${declaration}`);
+    assert.equal(original.line, originalLine, `Wrong source line for ${declaration}`);
+  }
+  await f.tasks.styles();
+  assert.deepEqual(await files(path.dirname(stylesheet)), ['main.css']);
+  assert.doesNotMatch(await fs.readFile(stylesheet, 'utf8'), /sourceMappingURL=/);
 });
 
 test('BEM generator rolls back partial writes and preserves unrelated files', async t => {
