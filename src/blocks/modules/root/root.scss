@@ -1,16 +1,20 @@
+@use "../../../styles/helpers/variables" as vars;
+
 .root {
-  font-family: Gilroy, Arial, Helvetica, San Francisco, Roboto, sans-serif;
-  background-color: $background;
-  color: $text;
+  font-family: Gilroy, Arial, Helvetica, "San Francisco", Roboto, sans-serif;
+  background-color: vars.$background;
+  color: vars.$text;
 }
 
 .root::-webkit-scrollbar {
   width: 6px;
 }
+
 .root::-webkit-scrollbar-track {
-  background-color: $primary;
+  background-color: vars.$primary;
 }
+
 .root::-webkit-scrollbar-thumb {
-  background-color: $secondary;
+  background-color: vars.$secondary;
   border-radius: 5px;
 }

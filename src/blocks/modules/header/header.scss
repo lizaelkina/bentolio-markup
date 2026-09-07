@@ -1,20 +1,22 @@
+@use "../../../styles/helpers/variables" as vars;
+
 .header {
-  padding: 35px 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 35px 24px;
   gap: 40px;
-  border-radius: $block-radius;
-  background-color: $primary;
+  border-radius: vars.$block-radius;
+  background-color: vars.$primary;
 
   &__logo {
     min-width: min(160px, 100%);
     transition: transform .5s ease;
-  }
 
-  @media (any-hover: hover) {
-    &__logo:hover {
-      transform: scale(1.1);
+    @media (any-hover: hover) {
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
@@ -24,7 +26,7 @@
     font-size: 25px;
     line-height: normal;
     text-transform: uppercase;
-    color: $text;
+    color: vars.$text;
   }
 
   &__title-bold {
@@ -33,15 +35,14 @@
     font-size: 25px;
     line-height: normal;
     text-transform: uppercase;
-    color: $text;
+    color: vars.$text;
   }
 
   &__nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    column-gap: 48px;
-    row-gap: 16px;
+    gap: 16px 48px;
   }
 }
 

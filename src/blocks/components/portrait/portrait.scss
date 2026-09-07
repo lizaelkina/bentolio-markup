@@ -1,10 +1,12 @@
+@use "../../../styles/helpers/variables" as vars;
+
 .portrait {
   flex: 1;
 
   &__img {
     height: 100%;
     aspect-ratio: 1;
-    border-radius: $block-radius;
+    border-radius: vars.$block-radius;
   }
 }
 

@@ -1,6 +1,8 @@
+@use "../../../styles/helpers/variables" as vars;
+
 .content {
   display: flex;
-  gap: $desktop-gap;
+  gap: vars.$desktop-gap;
 }
 
 @media screen and (max-width: 1132px) {
@@ -11,6 +13,6 @@
 
 @media screen and (max-width: 1024px) {
   .content {
-    gap:  $mobile-gap;
+    gap: vars.$mobile-gap;
   }
 }

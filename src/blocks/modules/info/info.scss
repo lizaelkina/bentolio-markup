@@ -1,13 +1,15 @@
+@use "../../../styles/helpers/variables" as vars;
+
 .info {
-  flex: 1 3 0;
-  min-width: min(350px, 100%);
   display: flex;
+  flex: 1 3 0;
   flex-direction: column;
-  gap: $desktop-gap;
+  min-width: min(350px, 100%);
+  gap: vars.$desktop-gap;
 }
 
 @media screen and (max-width: 1024px) {
   .info {
-    gap: $mobile-gap;
+    gap: vars.$mobile-gap;
   }
 }

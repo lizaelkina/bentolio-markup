@@ -14,4 +14,5 @@ Thumbs.db
 _config.yml
 node_modules
 dist
+.cache/
 package-lock.json

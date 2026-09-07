@@ -1,31 +1,37 @@
+@use "../../../styles/helpers/variables" as vars;
+
 .contact {
+  display: flex;
   flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
   min-width: min(314px, 100%);
   padding: 30px 24px 46px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
   gap: 24px;
-  border-radius: $block-radius;
-  background-color: $secondary;
+  border-radius: vars.$block-radius;
+  background-color: vars.$secondary;
+
+  &:hover .contact__svg {
+    transform: scale(1.5);
+  }
 
   &__link {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
     gap: 24px;
   }
 
   &__text {
-    max-width: 78px;
     width: 100%;
+    max-width: 78px;
     font-weight: 300;
     font-style: normal;
     font-size: 15px;
     line-height: 100%;
-    color: $text;
+    color: vars.$text;
   }
 
   &__svg {
@@ -39,12 +45,8 @@
     font-style: normal;
     font-size: clamp(24px, 4vw, 55px);
     line-height: 100%;
-    color: $text;
+    color: vars.$text;
   }
-}
-
-.contact:hover .contact__svg {
-  transform: scale(1.5);
 }
 
 @media screen and (max-width: 768px) {

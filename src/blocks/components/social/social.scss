@@ -1,13 +1,14 @@
+@use "../../../styles/helpers/variables" as vars;
+
 .social {
-  padding: 40px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  column-gap: 35px;
-  row-gap: 16px;
-  border-radius: $block-radius;
-  background-color: $primary;
+  justify-content: center;
+  padding: 40px;
+  gap: 16px 35px;
+  border-radius: vars.$block-radius;
+  background-color: vars.$primary;
 }
 
 @media screen and (max-width: 1132px) {

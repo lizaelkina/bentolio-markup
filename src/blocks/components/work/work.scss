@@ -1,23 +1,29 @@
+@use "../../../styles/helpers/variables" as vars;
+
 .work {
-  flex: 1;
-  padding: 34px 24px 45px;
   display: flex;
+  flex: 1;
   flex-direction: column;
+  padding: 34px 24px 45px;
   gap: 21px;
-  border-radius: $block-radius;
-  background-color: $primary;
+  border-radius: vars.$block-radius;
+  background-color: vars.$primary;
 
   &__link {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 24px;
+
+    &:hover .work__svg {
+      transform: scale(1.5);
+    }
   }
 
   &__title {
     font-weight: 500;
     font-size: 25px;
-    color: $text;
+    color: vars.$text;
   }
 
   &__svg {
@@ -27,8 +33,8 @@
   }
 
   &__container {
-    flex: 1;
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 30px;
   }
@@ -36,31 +42,27 @@
   &__img {
     max-width: 400px;
     max-height: 270px;
-    border-radius: $block-radius;
+    border-radius: vars.$block-radius;
   }
 
   &__list {
-    margin-top: auto;
-    width: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    margin-top: auto;
     gap: 40px;
   }
 
   &__item {
     padding-top: 40px;
-    border-top: 2px solid $secondary;
+    border-top: 2px solid vars.$secondary;
   }
 
   &__item-link {
     font-weight: 500;
     font-size: clamp(20px, 3vw, 25px);
-    color: $text;
+    color: vars.$text;
   }
-}
-
-.work__link:hover .work__svg {
-  transform: scale(1.5);
 }
 
 @media screen and (max-width: 1132px) {

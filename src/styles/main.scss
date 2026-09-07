@@ -1,15 +1,13 @@
-// Переменные, миксины, функции
-@import "helpers/variables";
-@import "helpers/mixins";
-@import "helpers/functions";
+// CSS custom properties must precede vendor and component styles.
+@use "base/tokens";
 
 // CSS-файлы библиотек
-@import "vendor/libs";
+@use "vendor/libs";
 
 // Основное
-@import "base/fonts";
-@import "base/general";
+@use "base/fonts";
+@use "base/general";
 
 // БЭМ-блоки
-@import "../blocks/components/components";
-@import "../blocks/modules/modules";
+@use "../blocks/components/components";
+@use "../blocks/modules/modules";

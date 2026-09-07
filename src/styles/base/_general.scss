@@ -1,11 +1,11 @@
+@use "../helpers/variables" as vars;
+
 html {
   scroll-behavior: smooth;
 }
 
-*,
-::before,
-::after {
-  font-family: Gilroy, Arial, Helvetica, San Francisco, Roboto, sans-serif;
+*, ::before, ::after {
+  font-family: Gilroy, Arial, Helvetica, "San Francisco", Roboto, sans-serif;
   box-sizing: border-box;
 }
 
@@ -28,5 +28,5 @@ img {
   display: block;
   width: 100%;
   object-fit: cover;
-  background-color: $secondary;
+  background-color: vars.$secondary;
 }

@@ -1,14 +1,19 @@
+@use "../../../styles/helpers/mixins";
+@use "../../../styles/helpers/variables" as vars;
+
 .link {
+  @include mixins.link-hover(.5px);
+
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
   line-height: normal;
   text-transform: uppercase;
-  color: $text;
-  @include link-hover(.5px);
+  color: vars.$text;
 
   &_work {
+    @include mixins.link-hover(1.5px);
+
     text-transform: none;
-    @include link-hover(1.5px);
   }
 }

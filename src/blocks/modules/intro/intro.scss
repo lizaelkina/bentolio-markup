@@ -1,33 +1,35 @@
+@use "../../../styles/helpers/variables" as vars;
+
 .intro {
-  flex: 2.06;
   display: flex;
+  flex: 2.06;
   flex-direction: column;
-  gap: $desktop-gap;
+  gap: vars.$desktop-gap;
 
   &__top {
-    flex: 1;
     display: flex;
-    gap: $desktop-gap;
+    flex: 1;
+    gap: vars.$desktop-gap;
   }
 
   &__bottom {
-    flex: 1;
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
-    gap: $desktop-gap;
+    gap: vars.$desktop-gap;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .intro {
-    gap: $mobile-gap;
+    gap: vars.$mobile-gap;
 
     &__top {
-      gap: $mobile-gap;
+      gap: vars.$mobile-gap;
     }
 
     &__bottom {
-      gap: $mobile-gap;
+      gap: vars.$mobile-gap;
     }
   }
 }

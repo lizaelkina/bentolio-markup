@@ -1,12 +1,14 @@
+@use "../../../styles/helpers/variables" as vars;
+
 .slogan {
-  flex: 1.55;
-  padding: 34px 30px 85px 24px;
   display: flex;
+  flex: 1.55;
   flex-direction: column;
   justify-content: space-between;
+  padding: 34px 30px 85px 24px;
   gap: 72px;
-  border-radius: $block-radius;
-  background-color: $primary;
+  border-radius: vars.$block-radius;
+  background-color: vars.$primary;
 
   &__svg {
     align-self: flex-end;
@@ -19,7 +21,7 @@
     font-style: normal;
     font-size: clamp(28px, 4vw, 56px);
     line-height: 100%;
-    color: $text;
+    color: vars.$text;
   }
 
   &__text-italic {
@@ -27,7 +29,7 @@
     font-style: italic;
     font-size: clamp(24px, 4vw, 56px);
     line-height: 100%;
-    color: $text;
+    color: vars.$text;
   }
 }
 
